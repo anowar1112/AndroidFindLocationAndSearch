@@ -53,7 +53,7 @@ class MapsActivityCurrentPlace : AppCompatActivity(), OnMapReadyCallback {
     private var likelyPlaceNames: Array<String?> = arrayOfNulls(0)
     private var likelyPlaceAddresses: Array<String?> = arrayOfNulls(0)
     private var likelyPlaceAttributions: Array<List<*>?> = arrayOfNulls(0)
-    private var likelyPlaceLatLngs: Array<LatLng?> = arrayOfNulls(0)
+    private var likelyPlaceLatLongs: Array<LatLng?> = arrayOfNulls(0)
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -283,13 +283,13 @@ class MapsActivityCurrentPlace : AppCompatActivity(), OnMapReadyCallback {
                     likelyPlaceNames = arrayOfNulls(count)
                     likelyPlaceAddresses = arrayOfNulls(count)
                     likelyPlaceAttributions = arrayOfNulls<List<*>?>(count)
-                    likelyPlaceLatLngs = arrayOfNulls(count)
+                    likelyPlaceLatLongs = arrayOfNulls(count)
                     for (placeLikelihood in likelyPlaces?.placeLikelihoods ?: emptyList()) {
                         // Build a list of likely places to show the user.
                         likelyPlaceNames[i] = placeLikelihood.place.name
                         likelyPlaceAddresses[i] = placeLikelihood.place.address
                         likelyPlaceAttributions[i] = placeLikelihood.place.attributions
-                        likelyPlaceLatLngs[i] = placeLikelihood.place.latLng
+                        likelyPlaceLatLongs[i] = placeLikelihood.place.latLng
                         i++
                         if (i > count - 1) {
                             break
@@ -327,7 +327,7 @@ class MapsActivityCurrentPlace : AppCompatActivity(), OnMapReadyCallback {
     private fun openPlacesDialog() {
         // Ask the user to choose the place where they are now.
         val listener = DialogInterface.OnClickListener { dialog, which -> // The "which" argument contains the position of the selected item.
-            val markerLatLng = likelyPlaceLatLngs[which]
+            val markerLatLng = likelyPlaceLatLongs[which]
             var markerSnippet = likelyPlaceAddresses[which]
             if (likelyPlaceAttributions[which] != null) {
                 markerSnippet = """

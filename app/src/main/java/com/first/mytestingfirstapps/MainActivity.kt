@@ -8,7 +8,7 @@ import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 
 class MainActivity : AppCompatActivity() {
-    private val SECOND_ACTIVITY_REQUEST_CODE = 10
+
     private var text:EditText? = null
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -33,5 +33,9 @@ class MainActivity : AppCompatActivity() {
                 text?.text = returnString?.toEditable()
             }
         }
+    }
+
+    companion object{
+        private const val SECOND_ACTIVITY_REQUEST_CODE = 10
     }
 }
