@@ -1,8 +1,10 @@
 package com.first.mytestingfirstapps
 
 import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
 import android.view.View
+import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
@@ -21,6 +23,13 @@ class MainActivity : AppCompatActivity() {
 
             // startActivity(intent)
             startActivityForResult(intent,SECOND_ACTIVITY_REQUEST_CODE)
+        }
+        val button = findViewById<Button>(R.id.mapButton)
+        button.setOnClickListener {
+            val uri = "http://maps.google.com/maps?saddr=dhaka&daddr=rajshahi"
+            val intent = Intent(Intent.ACTION_VIEW, Uri.parse(uri))
+            intent.setPackage("com.google.android.apps.maps");
+            startActivity(intent)
         }
 
     }
