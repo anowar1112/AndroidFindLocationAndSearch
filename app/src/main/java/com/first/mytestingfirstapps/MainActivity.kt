@@ -18,13 +18,19 @@ class MainActivity : AppCompatActivity() {
         text = findViewById<View>(R.id.eidText) as EditText
         val textView = findViewById<View>(R.id.text) as TextView
         textView.setOnClickListener {
-            val intent = Intent(this, MapsActivityCurrentPlace::class.java)
+            val intent = Intent(this, SecondActivity::class.java)
             intent.putExtra("FirstActivityKey", text?.text.toString())
-
-            // startActivity(intent)
             startActivityForResult(intent,SECOND_ACTIVITY_REQUEST_CODE)
         }
+
+        val openMapButton = findViewById<Button>(R.id.openMapButton)
+
+        openMapButton.setOnClickListener {
+            val intent = Intent(this, MapsActivityCurrentPlace::class.java)
+             startActivity(intent)
+        }
         val button = findViewById<Button>(R.id.mapButton)
+
         button.setOnClickListener {
             val uri = "http://maps.google.com/maps?saddr=dhaka&daddr=rajshahi"
             val intent = Intent(Intent.ACTION_VIEW, Uri.parse(uri))

@@ -41,5 +41,17 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
     />
+    <Button
+            android:id="@+id/openMapButton"
+            android:layout_width="200dp"
+            android:layout_height="100dp"
+            android:text="@string/open_google_map_here"
+            android:textColor="@color/black"
+            android:background="@color/cardview_light_background"
+            android:layout_marginTop="10dp"
+            app:layout_constraintTop_toBottomOf="@+id/mapButton"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+    />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

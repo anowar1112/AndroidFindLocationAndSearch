@@ -11,4 +11,5 @@
     <string name="pick_place">Choose a place</string>
     <string name="google_maps_key">Dhaka</string>
     <string name="go_to_google_map">Go To Google Map</string>
+    <string name="open_google_map_here">Open Google Map Here</string>
 </resources>
