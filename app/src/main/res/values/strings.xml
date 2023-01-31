@@ -12,4 +12,5 @@
     <string name="google_maps_key">Dhaka</string>
     <string name="go_to_google_map">Go To Google Map</string>
     <string name="open_google_map_here">Open Google Map Here</string>
+    <string name="send_broadcast_message">Send BroadCast Message</string>
 </resources>

@@ -1,32 +1,54 @@
 package com.first.mytestingfirstapps
 
 import android.content.Intent
+import android.content.IntentFilter
 import android.net.Uri
 import android.os.Bundle
 import android.text.Editable
 import android.view.View
+import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
 import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
-import androidx.lifecycle.Observer
+import com.first.mytestingfirstapps.broadcastReceiver.MyReceiver
 import com.first.mytestingfirstapps.viewModel.NameViewModel
 
 class SecondActivity : AppCompatActivity() {
 
     private val nameViewModel: NameViewModel by viewModels()
 
+    lateinit var receiver: MyReceiver
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_second)
+
+        receiver = MyReceiver()
+        IntentFilter(Intent.ACTION_AIRPLANE_MODE_CHANGED).also {
+            // registering the receiver
+            // it parameter which is passed in  registerReceiver() function
+            // is the intent filter that we have just created
+            registerReceiver(receiver, it)
+        }
+
+        IntentFilter(Intent.ACTION_BATTERY_LOW).also {
+            // registering the receiver
+            // it parameter which is passed in  registerReceiver() function
+            // is the intent filter that we have just created
+            registerReceiver(receiver, it)
+        }
 
         observeViewModel()
 
         val text = findViewById<View>(R.id.eidText2) as EditText
         val backButtonForPreviousActivity = findViewById<View>(R.id.text2) as TextView
         val goToOtherApps = findViewById<View>(R.id.text3) as TextView
+        val broadCastMessage = findViewById<View>(R.id.broadCastMessage) as Button
+        broadCastMessage.setOnClickListener{
 
+        }
 
         // receive the value by getStringExtra() method and
         // key must be same which by first activity
@@ -50,10 +72,15 @@ class SecondActivity : AppCompatActivity() {
         }
     }
 
+    override fun onStop() {
+        super.onStop()
+        unregisterReceiver(receiver)
+    }
+
     private fun observeViewModel() {
         nameViewModel.setvalue.observe(this) { price ->
             price?.let {
-                Toast.makeText(this, "Got the observer result $it", Toast.LENGTH_LONG).show();
+                Toast.makeText(this, "Got the observer result $it", Toast.LENGTH_LONG).show()
             }
         }
     }

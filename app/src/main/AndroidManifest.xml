@@ -2,6 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
           xmlns:tools="http://schemas.android.com/tools"
           package="com.first.mytestingfirstapps">
+
     <!-- Include this permission any time your app needs location information. -->
     <uses-permission
             android:name="android.permission.ACCESS_COARSE_LOCATION"/> <!-- Include only if your app benefits from precise location access. -->
@@ -21,16 +22,19 @@
             android:supportsRtl="true"
             android:theme="@style/Theme.MyTestingFirstApps"
             tools:targetApi="31">
+        <receiver
+                android:name=".MyReceiver"
+                android:enabled="true"
+                android:exported="true">
+        </receiver>
 
         <meta-data
                 android:name="com.google.android.gms.version"
-                android:value="@integer/google_play_services_version" />
-        <!--
-             The API key for Google Maps-based APIs.
-        -->
+                android:value="@integer/google_play_services_version"/>
+        <!--              The API key for Google Maps-based APIs. -->
         <meta-data
                 android:name="com.google.android.geo.API_KEY"
-                android:value="${MAPS_API_KEY}" />
+                android:value="${MAPS_API_KEY}"/>
 
         <activity
                 android:name=".MapsActivityCurrentPlace"
