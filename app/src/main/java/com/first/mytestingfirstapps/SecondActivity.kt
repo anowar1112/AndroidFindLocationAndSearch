@@ -7,12 +7,22 @@ import android.text.Editable
 import android.view.View
 import android.widget.EditText
 import android.widget.TextView
+import android.widget.Toast
+import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
+import androidx.lifecycle.Observer
+import com.first.mytestingfirstapps.viewModel.NameViewModel
 
 class SecondActivity : AppCompatActivity() {
+
+    private val nameViewModel: NameViewModel by viewModels()
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_second)
+
+        observeViewModel()
+
         val text = findViewById<View>(R.id.eidText2) as EditText
         val backButtonForPreviousActivity = findViewById<View>(R.id.text2) as TextView
         val goToOtherApps = findViewById<View>(R.id.text3) as TextView
@@ -37,6 +47,14 @@ class SecondActivity : AppCompatActivity() {
             intent.putExtra(Intent.EXTRA_TEXT, text.text.toString())
             setResult(RESULT_OK, intent)
             finish()
+        }
+    }
+
+    private fun observeViewModel() {
+        nameViewModel.setvalue.observe(this) { price ->
+            price?.let {
+                Toast.makeText(this, "Got the observer result $it", Toast.LENGTH_LONG).show();
+            }
         }
     }
 
