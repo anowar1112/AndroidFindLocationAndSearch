@@ -44,10 +44,10 @@
             app:layout_constraintEnd_toEndOf="parent"/>
 
     <Button
-            android:id="@+id/broadCastMessage"
+            android:id="@+id/chatGPT"
             android:layout_width="200dp"
             android:layout_height="100dp"
-            android:text="@string/send_broadcast_message"
+            android:text="@string/chat_gpt"
             android:textColor="@color/black"
             android:background="@color/cardview_light_background"
             android:layout_marginTop="10dp"

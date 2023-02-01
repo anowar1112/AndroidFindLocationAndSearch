@@ -29,9 +29,9 @@ class MainActivity : AppCompatActivity() {
             val intent = Intent(this, MapsActivityCurrentPlace::class.java)
              startActivity(intent)
         }
-        val button = findViewById<Button>(R.id.mapButton)
+        val mapButton = findViewById<Button>(R.id.mapButton)
 
-        button.setOnClickListener {
+        mapButton.setOnClickListener {
             val uri = "http://maps.google.com/maps?saddr=dhaka&daddr=rajshahi"
             val intent = Intent(Intent.ACTION_VIEW, Uri.parse(uri))
             intent.setPackage("com.google.android.apps.maps");

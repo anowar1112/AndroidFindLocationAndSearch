@@ -13,6 +13,7 @@ import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import com.first.mytestingfirstapps.broadcastReceiver.MyReceiver
+import com.first.mytestingfirstapps.chatGPT.ChatGPTActivity
 import com.first.mytestingfirstapps.viewModel.NameViewModel
 
 class SecondActivity : AppCompatActivity() {
@@ -40,14 +41,15 @@ class SecondActivity : AppCompatActivity() {
             registerReceiver(receiver, it)
         }
 
-        observeViewModel()
+        //observeViewModel()
 
         val text = findViewById<View>(R.id.eidText2) as EditText
         val backButtonForPreviousActivity = findViewById<View>(R.id.text2) as TextView
         val goToOtherApps = findViewById<View>(R.id.text3) as TextView
-        val broadCastMessage = findViewById<View>(R.id.broadCastMessage) as Button
-        broadCastMessage.setOnClickListener{
-
+        val chatGPT = findViewById<View>(R.id.chatGPT) as Button
+        chatGPT.setOnClickListener{
+            val intent = Intent(this, ChatGPTActivity::class.java)
+            startActivity(intent)
         }
 
         // receive the value by getStringExtra() method and
