@@ -14,6 +14,7 @@ import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import com.first.mytestingfirstapps.broadcastReceiver.MyReceiver
 import com.first.mytestingfirstapps.chatGPT.ChatGPTActivity
+import com.first.mytestingfirstapps.chatGPT.ChatGPTTwoAPI
 import com.first.mytestingfirstapps.viewModel.NameViewModel
 
 class SecondActivity : AppCompatActivity() {
@@ -48,7 +49,7 @@ class SecondActivity : AppCompatActivity() {
         val goToOtherApps = findViewById<View>(R.id.text3) as TextView
         val chatGPT = findViewById<View>(R.id.chatGPT) as Button
         chatGPT.setOnClickListener{
-            val intent = Intent(this, ChatGPTActivity::class.java)
+            val intent = Intent(this, ChatGPTTwoAPI::class.java)
             startActivity(intent)
         }
 

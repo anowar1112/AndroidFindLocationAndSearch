@@ -22,7 +22,9 @@
             android:supportsRtl="true"
             android:theme="@style/Theme.MyTestingFirstApps"
             tools:targetApi="31">
-
+        <activity
+                android:name=".chatGPT.ChatGPTTwoAPI"
+                android:exported="false"/>
         <activity
                 android:name=".chatGPT.ChatGPTActivity"
                 android:exported="false"/>
