@@ -6,8 +6,10 @@ import android.os.Bundle
 import android.view.View
 import android.widget.Button
 import android.widget.EditText
+import android.widget.ImageView
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
+import com.squareup.picasso.Picasso
 
 class MainActivity : AppCompatActivity() {
 
@@ -37,6 +39,13 @@ class MainActivity : AppCompatActivity() {
             intent.setPackage("com.google.android.apps.maps");
             startActivity(intent)
         }
+
+        ///image library
+        val imageView = findViewById(R.id.imageView) as ImageView
+        ///image library
+       // val url = "https://picsum.photos/250?image=9"
+        val imageUri = "https://i.imgur.com/tGbaZCY.jpg"
+        Picasso.get().load(imageUri).into(imageView)
 
     }
 
