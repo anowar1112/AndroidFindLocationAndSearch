@@ -24,6 +24,9 @@
             android:theme="@style/Theme.MyTestingFirstApps"
             tools:targetApi="31">
         <activity
+                android:name=".RoomDatabaseMainActivity"
+                android:exported="false"/>
+        <activity
                 android:name=".chatGPT.ChatGPTTwoAPI"
                 android:exported="false"/>
         <activity
