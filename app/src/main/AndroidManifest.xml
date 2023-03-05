@@ -24,9 +24,6 @@
             android:theme="@style/Theme.MyTestingFirstApps"
             tools:targetApi="31">
         <activity
-                android:name=".RoomDatabaseMainActivity"
-                android:exported="false"/>
-        <activity
                 android:name=".chatGPT.ChatGPTTwoAPI"
                 android:exported="false"/>
         <activity
@@ -51,6 +48,9 @@
                 android:exported="false"/>
         <activity
                 android:name=".SecondActivity"
+                android:exported="false"/>
+        <activity
+                android:name=".roomDatabase.RoomDatabaseMainActivity"
                 android:exported="false"/>
         <activity
                 android:name=".MainActivity"

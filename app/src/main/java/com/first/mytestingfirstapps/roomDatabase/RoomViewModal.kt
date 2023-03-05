@@ -2,19 +2,24 @@ package com.first.mytestingfirstapps.roomDatabase
 
 
 import android.app.Application
+import android.util.Log
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
 
 class RoomViewModal(application: Application) : AndroidViewModel(application) {
     // creating a new variable for course repository.
     private var repository: CourseRepository? = null
+    private var appln: Application? = null
 
     // below line is to create a variable for live
     // data where all the courses are present.
     private var allCourses: LiveData<List<CourseModal?>?>? = null
 
     init {
-        repository = CourseRepository(application)
+        this.appln = application
+    }
+    fun init() {
+        repository = CourseRepository(appln)
         allCourses = repository!!.allCourses
     }
 
@@ -25,6 +30,7 @@ class RoomViewModal(application: Application) : AndroidViewModel(application) {
 
     // below line is to update data in our repository.
     fun update(model: CourseModal?) {
+        Log.d("ViewModel", "update")
         repository!!.update(model)
     }
 

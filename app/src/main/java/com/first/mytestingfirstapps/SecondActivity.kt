@@ -15,6 +15,7 @@ import androidx.appcompat.app.AppCompatActivity
 import com.first.mytestingfirstapps.broadcastReceiver.MyReceiver
 import com.first.mytestingfirstapps.chatGPT.ChatGPTActivity
 import com.first.mytestingfirstapps.chatGPT.ChatGPTTwoAPI
+import com.first.mytestingfirstapps.roomDatabase.RoomDatabaseMainActivity
 import com.first.mytestingfirstapps.viewModel.NameViewModel
 
 class SecondActivity : AppCompatActivity() {
@@ -47,6 +48,11 @@ class SecondActivity : AppCompatActivity() {
         val text = findViewById<View>(R.id.eidText2) as EditText
         val backButtonForPreviousActivity = findViewById<View>(R.id.text2) as TextView
         val goToOtherApps = findViewById<View>(R.id.text3) as TextView
+        val roomTextPage = findViewById<View>(R.id.roomTextPage) as TextView
+        roomTextPage.setOnClickListener{
+            val intent = Intent(this, RoomDatabaseMainActivity::class.java)
+            startActivity(intent)
+        }
         val chatGPT = findViewById<View>(R.id.chatGPT) as Button
         chatGPT.setOnClickListener{
             val intent = Intent(this, ChatGPTTwoAPI::class.java)

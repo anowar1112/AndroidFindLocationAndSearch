@@ -2,6 +2,7 @@ package com.first.mytestingfirstapps.roomDatabase
 
 import android.app.Application
 import android.os.AsyncTask
+import android.util.Log
 import androidx.lifecycle.LiveData
 
 
@@ -28,6 +29,7 @@ class CourseRepository(application: Application?) {
 
     // creating a method to update data in database.
     fun update(model: CourseModal?) {
+        Log.d("Repository", "update")
         UpdateCourseAsyncTask(dao).execute(model)
     }
 
@@ -57,6 +59,7 @@ class CourseRepository(application: Application?) {
          override fun doInBackground(vararg models: CourseModal?): Void? {
             // below line is used to update
             // our modal in dao.
+             Log.d("Repository","added")
             dao.update(models[0])
             return null
         }
