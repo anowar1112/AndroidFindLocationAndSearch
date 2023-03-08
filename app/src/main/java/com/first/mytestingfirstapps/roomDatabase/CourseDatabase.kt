@@ -16,7 +16,7 @@ abstract class CourseDatabase : RoomDatabase() {
     abstract fun Dao(): Dao
 
     // we are creating an async task class to perform task in background.
-    private class PopulateDbAsyncTask internal constructor(instance: CourseDatabase?) :
+    private class PopulateDbAsyncTask(instance: CourseDatabase?) :
         AsyncTask<Void?, Void?, Void?>() {
         init {
             val dao = instance!!.Dao()

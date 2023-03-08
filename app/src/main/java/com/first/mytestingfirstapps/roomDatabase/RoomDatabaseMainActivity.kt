@@ -25,7 +25,7 @@ class RoomDatabaseMainActivity : AppCompatActivity() {
         // below line is used to get all the courses from view modal.
         viewModal.init()
         // below line is used to get all the courses from view modal.
-        viewModal.getAllCourses()?.observe(this) {
+        viewModal.allCourses?.observe(this) {
             // when the data is changed in our models we are
             // adding that list to our adapter class.
             //todo: update adapter
@@ -50,7 +50,7 @@ class RoomDatabaseMainActivity : AppCompatActivity() {
     /// need to call
     private fun saveCourse(courseName:String, courseDescription:String,  courseDuration:String) {
         val model = CourseModal(courseName, courseDescription, courseDuration)
-        viewModal.update(model)
+        viewModal.insert(model)
         Toast.makeText(this, "Course updated", Toast.LENGTH_SHORT).show()
     }
 }

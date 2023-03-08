@@ -11,17 +11,17 @@ interface Dao {
     // below method is used to
     // add data to database.
     @Insert
-    fun insert(model: CourseModal?)
+    fun insert(model: CourseModal)
 
     // below method is used to update
     // the data in our database.
     @Update
-    fun update(model: CourseModal?)
+    fun update(model: CourseModal)
 
     // below line is used to delete a
     // specific course in our database.
     @Delete
-    fun delete(model: CourseModal?)
+    fun delete(model: CourseModal)
 
     // on below line we are making query to
     // delete all courses from our database.
@@ -32,6 +32,6 @@ interface Dao {
     // in this we are ordering our courses in ascending order
     // with our course name.
     @get:Query("SELECT * FROM course_table ORDER BY courseName ASC")
-    val allCourses: LiveData<List<CourseModal?>?>?
+    val allCourses: LiveData<List<CourseModal>?>?
 }
 

@@ -5,6 +5,7 @@ import android.app.Application
 import android.util.Log
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
+import androidx.lifecycle.MutableLiveData
 
 class RoomViewModal(application: Application) : AndroidViewModel(application) {
     // creating a new variable for course repository.
@@ -13,15 +14,16 @@ class RoomViewModal(application: Application) : AndroidViewModel(application) {
 
     // below line is to create a variable for live
     // data where all the courses are present.
-    private var allCourses: LiveData<List<CourseModal?>?>? = null
+    var allCourses : LiveData<List<CourseModal>?>? = null
 
     init {
         this.appln = application
     }
     fun init() {
         repository = CourseRepository(appln)
-        allCourses = repository!!.allCourses
+        allCourses = repository!!.allCourses_s
     }
+
 
     // below method is used to insert the data to our repository.
     fun insert(model: CourseModal?) {
@@ -45,7 +47,4 @@ class RoomViewModal(application: Application) : AndroidViewModel(application) {
     }
 
     // below method is to get all the courses in our list.
-    fun getAllCourses(): LiveData<List<CourseModal?>?>? {
-        return allCourses
-    }
 }
