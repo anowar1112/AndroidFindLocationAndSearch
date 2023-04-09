@@ -16,4 +16,5 @@
     <string name="chat_gpt">Chat GPT</string>
     <string name="crop_image_view">Crop Image View</string>
     <string name="crop_rotation">Crop Rotation</string>
+    <string name="image_crop_library">Image Crop Library</string>
 </resources>

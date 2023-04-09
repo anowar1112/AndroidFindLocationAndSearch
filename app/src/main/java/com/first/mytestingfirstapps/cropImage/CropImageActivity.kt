@@ -1,9 +1,11 @@
 package com.first.mytestingfirstapps.cropImage
 
-import android.graphics.Bitmap
-import android.graphics.BitmapFactory
-import android.graphics.Matrix
+import android.content.Intent
+import android.graphics.*
+import android.net.Uri
+import android.os.Build
 import android.os.Bundle
+import android.provider.MediaStore
 import android.util.Log
 import android.widget.Button
 import android.widget.ImageView
@@ -30,8 +32,37 @@ class CropImageActivity : AppCompatActivity() {
             saveImgToCache(bitmap)
             imageView.setImageBitmap(bitmap)
         }
+        val cropButton = findViewById<Button>(R.id.cropButton)
+
+        cropButton.setOnClickListener {
+            bitmap = crop(bitmap)
+            imageView.setImageBitmap(bitmap)
+        }
     }
 
+    fun crop(originalBitmap: Bitmap):Bitmap{
+
+// Define the coordinates of the crop area
+        val cropLeft = 30
+        val cropTop = 30
+        val cropWidth = originalBitmap.width
+        val cropHeight = originalBitmap.height
+// Create a new bitmap with the cropped dimensions
+        val croppedBitmap = Bitmap.createBitmap(cropWidth, cropHeight, Bitmap.Config.ARGB_8888)
+// Create a new canvas to draw the cropped image onto
+        val canvas = Canvas(croppedBitmap)
+// Draw the cropped portion of the original image onto the canvas
+        val srcRect = Rect(cropLeft, cropTop, cropLeft + cropWidth, cropTop + cropHeight)
+        val destRect = Rect(0, 0, cropWidth, cropHeight)
+        canvas.drawBitmap(originalBitmap, srcRect, destRect, null)
+
+// Use the cropped bitmap as desired
+        return croppedBitmap
+    }
+
+    private fun getimagepath(){
+        val cachePath = "${File(applicationContext!!.cacheDir,"image")}"+"/default.png"
+    }
     private fun saveImgToCache(bitmap: Bitmap): File? {
         var cachePath: File? = null
         var fileName: String = "default"

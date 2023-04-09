@@ -23,6 +23,7 @@
             android:supportsRtl="true"
             android:theme="@style/Theme.MyTestingFirstApps"
             tools:targetApi="31">
+
         <activity
                 android:name=".cropImage.CropImageActivity"
                 android:exported="false"/>
