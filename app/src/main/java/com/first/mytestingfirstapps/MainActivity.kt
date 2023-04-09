@@ -9,6 +9,7 @@ import android.widget.EditText
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
+import com.first.mytestingfirstapps.cropImage.CropImageActivity
 import com.squareup.picasso.Picasso
 
 class MainActivity : AppCompatActivity() {
@@ -29,6 +30,13 @@ class MainActivity : AppCompatActivity() {
 
         openMapButton.setOnClickListener {
             val intent = Intent(this, MapsActivityCurrentPlace::class.java)
+             startActivity(intent)
+        }
+
+        val cropImageActivity = findViewById<Button>(R.id.cropImageActivity)
+
+        cropImageActivity.setOnClickListener {
+            val intent = Intent(this, CropImageActivity::class.java)
              startActivity(intent)
         }
         val mapButton = findViewById<Button>(R.id.mapButton)

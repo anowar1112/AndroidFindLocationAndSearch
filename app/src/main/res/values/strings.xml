@@ -14,4 +14,6 @@
     <string name="open_google_map_here">Open Google Map Here</string>
     <string name="send_broadcast_message">Send BroadCast Message</string>
     <string name="chat_gpt">Chat GPT</string>
+    <string name="crop_image_view">Crop Image View</string>
+    <string name="crop_rotation">Crop Rotation</string>
 </resources>
